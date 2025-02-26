@@ -5,6 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 code {
