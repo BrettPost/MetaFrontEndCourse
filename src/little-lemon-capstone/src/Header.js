@@ -2,7 +2,7 @@
 
 function Header() {
     return (
-        <header>
+        <header className="col-12">
 
         </header>
     );

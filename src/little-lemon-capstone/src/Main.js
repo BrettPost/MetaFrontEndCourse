@@ -1,7 +1,7 @@
 
 function Main() {
     return (
-        <main>
+        <main className="col-12">
             Main Section
         </main>
     );

@@ -2,7 +2,7 @@ import Logo from './Images/Logo.svg'
 
 function Nav() {
     return (
-        <nav>
+        <nav className="col-12">
             <img src={Logo} alt="Logo and title of the application." />
             <ul>
                 <li><a href="/#">Home</a></li>

@@ -5,7 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 10px;
@@ -13,7 +20,31 @@ body {
   margin: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.item {
+  background: lightgreen;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+  background-color: black;
+}
+
+/* Define column sizes using percentages */
+.col-1  { grid-column: span 1 }
+.col-2  { grid-column: span 2 }
+.col-3  { grid-column: span 3 }
+.col-4  { grid-column: span 4  }
+.col-6  { grid-column: span 6  }
+.col-12 { grid-column: span 12 }
+
+.socialLinks {
+  grid-column: 6 / 8;
+}
+
+/* Make responsive */
+@media (max-width: 768px) {
+  .col-6, .col-4, .col-3 { width: 100%; } /* Stack on smaller screens */
+}
+
+img {
+  width: 300px;
 }
