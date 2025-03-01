@@ -2,7 +2,12 @@
 function Main() {
     return (
         <main className="col-12">
-            Main Section
+            <article>
+
+            </article>
+            <section>
+                
+            </section>
         </main>
     );
 }
