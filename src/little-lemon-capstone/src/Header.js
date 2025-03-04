@@ -4,7 +4,7 @@ import Logo from './Images/Logo.svg'
 function Header() {
     return (
         <header className="grid">
-            <img src={Logo} alt="Logo and title of the application." className="col-4"/>
+            <img src={Logo} alt="Logo and title of the application." className=""/>
             <Nav />
         </header>
     );

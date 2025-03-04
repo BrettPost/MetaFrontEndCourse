@@ -1,35 +1,43 @@
-import Restaurant from './Images/restaurant.jpg';
+import FooterLogo from './Images/FooterPhoto.png';
 
 function Footer() {
     return (
-        <footer className="col-12 grid">
-            <img src={Restaurant} alt="Logo and title of the application." className="col-4"/>
-            <div className="socialLinks">
-                <label>Doormat Navigation</label>
-                <ul>
-                    <li><a>Home</a></li>
-                    <li><a>About</a></li>
-                    <li><a>Menu</a></li>
-                    <li><a>Reservations</a></li>
-                    <li><a>Order Online</a></li>
-                    <li><a>Login</a></li>
-                </ul>
-                <label>Contact</label>
-                <ul>
-                    <li><a>Address</a></li>
-                    <li><a>Phone Number</a></li>
-                    <li><a>Email</a></li>
-                </ul>
-                <div className="socialLinks">
-                    <label>Social Media Links</label>
-                    <ul>
-                        <li><a>Instagram</a></li>
-                        <li><a>Facebook</a></li>
-                        <li><a>X</a></li>
+        <footer>
+            <div className="grid">
+                <div className="footerColumnOne">
+                    <img src={FooterLogo} alt="Logo and title of the application." className="col-4"/>
+                </div>
+                <div className="footerColumnTwo">
+                    <label className="sectionTitle">DOORMAT NAVIGATION</label>
+                    <ul className="paragraphText">
+                        <li><a href="/#">Home</a></li>
+                        <li><a href="/#">About</a></li>
+                        <li><a href="/#">Menu</a></li>
+                        <li><a href="/#">Reservations</a></li>
+                        <li><a href="/#">Order Online</a></li>
+                        <li><a href="/#">Login</a></li>
+                    </ul>
+                </div>
+                <div className="footerColumnThree">
+                    <label className="sectionTitle">CONTACT</label>
+                    <ul className="paragraphText">
+                        <li><a href="/#">Address</a></li>
+                        <li><a href="/#">Phone Number</a></li>
+                        <li><a href="/#">Email</a></li>
+                    </ul>
+                </div>
+                
+                <div className="footerColumnFour">
+                    <label className="sectionTitle">SOCIAL MEDIA LINKS</label>
+                    <ul className="paragraphText">
+                        <li><a href="/#">Instagram</a></li>
+                        <li><a href="/#">Facebook</a></li>
+                        <li><a href="/#">X</a></li>
                     </ul>
                 </div>
                 
             </div>
+            
             
             
         </footer>

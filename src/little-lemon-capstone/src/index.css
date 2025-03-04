@@ -24,24 +24,22 @@ code {
   grid-template-columns: repeat(12, 1fr);
   column-gap: 20px;
   max-width: 1200px;
+  justify-self: center;
   margin: 0 3% 0 3%;
 }
-
-/* Define column sizes using percentages */
-.col-1  { grid-column: span 1 }
-.col-2  { grid-column: span 2 }
-.col-3  { grid-column: span 3 }
-.col-4  { grid-column: span 4  }
-.col-6  { grid-column: span 6  }
-.col-12 { grid-column: span 12 }
 
 header {
   height: 12vh;
   align-items: center;
+  width: 100%;
+}
+
+header > img {
+  grid-column: 3 / 5;
 }
 
 nav {
-  grid-column: 7 / span 6;
+  grid-column: 6 / 11;
 }
 
 nav > ul {
@@ -57,6 +55,46 @@ nav li {
 
 nav a {
   text-decoration: none;
+}
+
+footer {
+  background-color: #EDEFEE;
+  width: 100%;
+  padding: 5% 0 5% 0;
+}
+
+footer li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer img {
+  width: 132px;
+}
+
+.footerColumnOne {
+  grid-column: 2 / 4;
+  justify-self: center;
+}
+
+.footerColumnTwo {
+  grid-column: 5 / 6;
+  justify-self: center;
+}
+
+.footerColumnThree {
+  grid-column: 7 / 9;
+  justify-self: center;
+}
+
+.footerColumnFour {
+  grid-column: 10 / 12;
+  justify-self: center;
 }
 
 /* Fonts */
