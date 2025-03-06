@@ -1,13 +1,18 @@
+import TitleAreaSection from "./TitleSection";
 
 function Main() {
     return (
-        <main className="col-12">
+        <main className="">
+            <TitleAreaSection />
             <article>
-
+                Weekly Specials
             </article>
-            <section>
-                
-            </section>
+            <article>
+                Testimonials
+            </article>
+            <article>
+                About Us
+            </article>
         </main>
     );
 }

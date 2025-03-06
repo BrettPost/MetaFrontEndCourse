@@ -19,6 +19,14 @@ code {
     monospace;
 }
 
+button {
+  background-color: #F4CE14;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 4px 5px 6px #333333;
+  margin: 1rem;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -26,6 +34,7 @@ code {
   max-width: 1200px;
   justify-self: center;
   margin: 0 3% 0 3%;
+  position: relative;
 }
 
 header {
@@ -55,6 +64,27 @@ nav li {
 
 nav a {
   text-decoration: none;
+}
+
+main > article {
+  padding: 10% 0 10% 0;
+}
+
+.titleArea {
+  background-color: #495E57;
+  
+}
+
+.titleSectionColumnOne {
+  grid-column: 3 / 7;
+  justify-content: center;
+}
+
+.titleSectionColumnTwo {
+  grid-column: 8 / 12;
+  border-radius: 1rem;
+  box-shadow: 4px 5px 6px #333333;
+  position: absolute;
 }
 
 footer {
