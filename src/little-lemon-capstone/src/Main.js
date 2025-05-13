@@ -1,12 +1,11 @@
 import TitleAreaSection from "./TitleSection";
+import WeeklySpecials from "./WeeklySpecials";
 
 function Main() {
     return (
         <main className="">
             <TitleAreaSection />
-            <article>
-                Weekly Specials
-            </article>
+            <WeeklySpecials />
             <article>
                 Testimonials
             </article>

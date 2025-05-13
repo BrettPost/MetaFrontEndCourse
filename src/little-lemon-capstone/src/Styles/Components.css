@@ -4,9 +4,10 @@ button {
     border-radius: 1rem;
     box-shadow: 4px 5px 6px #333333;
     margin: 1rem 1rem 1rem 0;
-  }
-  
-  .grid {
+    white-space: nowrap;
+}
+
+.grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 20px;
@@ -14,180 +15,208 @@ button {
     justify-self: center;
     margin: 0 3% 0 3%;
     position: relative;
-  }
-  
-  header {
+}
+
+/* Parent container for the cards */
+.weekly-specials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    padding: 16px;
+}
+
+/* Header Section */
+
+header {
     height: 12vh;
     align-items: center;
     width: 100%;
-  }
-  
-  header > img {
+}
+
+header > img {
     grid-column: 3 / 5;
-  }
-  
-  nav {
+}
+
+/* Nav Section */
+
+nav {
     grid-column: 6 / 11;
-  }
-  
-  nav > ul {
+}
+
+nav > ul {
     display: flex;
     justify-content: space-between;
-  }
-  
-  nav li {
+}
+
+nav li {
     list-style-type: none;
     padding: 0;
     margin: 0;
-  }
-  
-  nav a {
+}
+
+nav a {
     text-decoration: none;
-  }
-  
-  main > article {
+}
+
+main > article {
     padding: 10% 0 10% 0;
-  }
-  
-  .titleArea {
+}
+
+/* Title Section */
+
+.titleArea {
     background-color: #495E57;
-    
-  }
-  
-  .titleSectionColumnOne {
+}
+
+.titleSectionColumnOne {
     grid-column: 3 / 7;
     justify-content: center;
-  }
-  
-  .titleSectionColumnTwo {
+}
+
+.titleSectionColumnTwo {
     grid-column: 8 / 12;
     border-radius: 1rem;
     box-shadow: 4px 5px 6px #333333;
     position: absolute;
-  }
-  
-  footer {
+}
+
+/* Weekly Special Section */
+
+.weeklySpecialSection {
+    background-color: #F4CE14;
+}
+.weeklySpecialSectionColumnOne {
+    grid-column: 1 / 9;
+    align-self: center;
+}
+.weeklySpecialSectionColumnTwo {
+    grid-column: 10 / 12;
+    align-items: center;
+}
+
+/* Footer Section */
+
+footer {
     background-color: #EDEFEE;
     width: 100%;
     padding: 5% 0 5% 0;
-  }
-  
-  footer li {
+}
+
+footer li {
     list-style-type: none;
     padding: 0;
     margin: 0;
-  }
-  
-  footer a {
+}
+
+footer a {
     text-decoration: none;
-  }
-  
-  footer img {
+}
+
+footer img {
     width: 132px;
-  }
-  
-  .footerColumnOne {
+}
+
+.footerColumnOne {
     grid-column: 2 / 4;
     justify-self: center;
-  }
-  
-  .footerColumnTwo {
+}
+
+.footerColumnTwo {
     grid-column: 5 / 6;
     justify-self: center;
-  }
-  
-  .footerColumnThree {
+}
+
+.footerColumnThree {
     grid-column: 7 / 9;
     justify-self: center;
-  }
-  
-  .footerColumnFour {
+}
+
+.footerColumnFour {
     grid-column: 10 / 12;
     justify-self: center;
-  }
-  
-  /* Fonts */
-  
-  .displayTitle {
+}
+
+/* Fonts */
+
+.displayTitle {
     font-size: 64px;
     font-family: 'Markazi Text';
     font-weight: bold;
-  }
-  
-  .subTitle {
+}
+
+.subTitle {
     font-size: 40px;
     font-family: 'Markazi Text';
-  }
-  
-  .leadText {
+}
+
+.leadText {
     font-size: 18px;
     font-family: 'Karla';
     font-weight: bold;
-  }
-  
-  .sectionTitle {
+}
+
+.sectionTitle {
     font-size: 20px;
     font-family: 'Karla';
     font-weight: bolder;
-  }
-  
-  .sectionCategories {
+}
+
+.sectionCategories {
     font-size: 16px;
     font-family: 'Karla';
     font-weight: bolder;
-  }
-  
-  /* Should be darker than lead text class */
-  .cardTitle {
+}
+
+/* Should be darker than lead text class */
+.cardTitle {
     font-size: 18px;
-    
+
     font-weight: bold;
-  }
-  
-  .paragraphText {
+}
+
+.paragraphText {
     font-size: 16px;
     font-family: 'Karla';
     line-height: 20px;
-  }
-  
-  .highlightText {
+}
+
+.highlightText {
     font-size: 16px;
     font-family: 'Karla';
     font-weight: bold;
-  }
-  
-  /* Colors */
-  
-  .primaryGreen {
+}
+
+/* Colors */
+
+.primaryGreen {
     color: #495E57;
-  }
-  
-  .primaryYellow {
+}
+
+.primaryYellow {
     color: #F4CE14;
-  }
-  
-  .secondaryOrange {
+}
+
+.secondaryOrange {
     color: #EE9972;
-  }
-  
-  .secondaryTan {
+}
+
+.secondaryTan {
     color: #FBDABB;
-  }
-  
-  .secondaryWhite {
+}
+
+.secondaryWhite {
     color: #EDEFEE;
-  }
-  
-  .secondaryBlack {
+}
+
+.secondaryBlack {
     color: #333333;
-  }
-  
-  /* Make responsive */
-  @media (max-width: 768px) {
+}
+
+/* Make responsive */
+@media (max-width: 768px) {
     .col-6, .col-4, .col-3 { width: 100%; } /* Stack on smaller screens */
-  }
-  
-  img {
+}
+
+img {
     max-width: 300px;
-  }
-  
+}
