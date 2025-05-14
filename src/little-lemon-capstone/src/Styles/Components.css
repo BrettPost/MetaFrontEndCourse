@@ -21,8 +21,9 @@ button {
 .weekly-specials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 16px;
+    gap: 3rem;
     padding: 16px;
+    margin: auto 10% auto 10%;
 }
 
 /* Header Section */
@@ -59,7 +60,7 @@ nav a {
 }
 
 main > article {
-    padding: 10% 0 10% 0;
+    padding: 8.2% 0 10% 0;
 }
 
 /* Title Section */
@@ -93,6 +94,28 @@ main > article {
     grid-column: 10 / 12;
     align-items: center;
 }
+
+.weeklySpecialCard {
+    height: 450px;
+    width: 250px;
+    background-color: #EDEFEE;
+    border-radius: 1rem;
+    box-shadow: 4px 5px 6px #333333;
+    overflow: hidden;
+    justify-self: center;
+}
+
+.weeklySpecialCard img {
+    
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    
+}
+
+
 
 /* Footer Section */
 
