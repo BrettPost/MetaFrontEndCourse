@@ -7,6 +7,10 @@ button {
     white-space: nowrap;
 }
 
+p span {
+    vertical-align: middle;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -97,13 +101,38 @@ main > article {
 
 .weeklySpecialCard {
     height: 450px;
-    width: 250px;
+    width: 260px;
     background-color: #EDEFEE;
     border-radius: 1rem;
     box-shadow: 4px 5px 6px #333333;
     overflow: hidden;
     justify-self: center;
 }
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 0;
+}
+
+.cardDescription {
+    padding: 1rem 1rem 3.8rem 1rem;
+    margin: 0;
+}
+
+.picture-wrapper {
+    height: 200px;
+    position: relative;
+    /* overflow: hidden; */
+  }
 
 .weeklySpecialCard img {
     
@@ -113,6 +142,10 @@ main > article {
     left: 0;
     object-fit: cover;
     
+}
+
+.cardAction {
+    padding: 1rem;
 }
 
 
