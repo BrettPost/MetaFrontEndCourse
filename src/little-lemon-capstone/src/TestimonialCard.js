@@ -1,18 +1,37 @@
 import React from 'react';
 
 const TestimonialCard = ({testimonial}) => {
+    var stars = () => {
+        let starElements = [];
+        for (let i = 0; i < 5; i++) {
+            if (i < testimonial.rating) {
+                starElements.push(<span className="material-icons primaryYellow">star</span>);
+            } else {
+                starElements.push(<span className="material-symbols-outlined secondaryBlack">star</span>);
+            }
+        }
+        return starElements;
+    }
+
     return (
-        <div key={testimonial.id} className="weeklySpecialCard">
-            <div className='picture-wrapper'>
-                <img src={testimonial.profileImage} alt={testimonial.fullName} />
+        <div key={testimonial.id} className="testimonialRowTwo testimonialCard">
+            <div className="testimonialCardHeader">
+                <div className='testimonialPictureWrapper'>
+                    <img src={testimonial.profileImage} alt={testimonial.fullName} />
+                </div>
+                <div className="">
+                    <h4 className="">{testimonial.fullName}</h4>
+                    <p className="">{testimonial.username}</p>
+                </div>
             </div>
-            <div className='cardHeader'>
-                <h3 className="weeklySpecialName">{testimonial.fullName}</h3>
-                <p className="weeklySpecialPrice">{testimonial.rating}</p>
+            <div className="testimonialStars">
+                {stars().map((star, index) => (
+                    <div key={index}>
+                        {star}
+                    </div>
+                ))}
             </div>
-            <p className="cardDescription">{testimonial.review}</p>
-            <p className="cardAction">Order a delivery <span class="material-symbols-outlined">room_service</span></p>
-            
+            <p className="">"{testimonial.review}"</p>
         </div>
     );
 };

@@ -3,7 +3,7 @@ import React from 'react';
 const WeeklySpecialCard = ({special}) => {
     return (
         <div key={special.id} className="weeklySpecialCard">
-            <div className='picture-wrapper'>
+            <div className='weeklyPictureWrapper'>
                 <img src={special.image} alt={special.name} />
             </div>
             <div className='cardHeader'>
