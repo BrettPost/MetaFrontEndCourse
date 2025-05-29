@@ -11,7 +11,7 @@ const WeeklySpecialCard = ({special}) => {
                 <p className="weeklySpecialPrice">{special.price}</p>
             </div>
             <p className="cardDescription">{special.description}</p>
-            <p className="cardAction">Order a delivery <span class="material-symbols-outlined">room_service</span></p>
+            <p className="cardAction">Order a delivery <span className="material-symbols-outlined">room_service</span></p>
             
         </div>
     );

@@ -5,9 +5,9 @@ const TestimonialCard = ({testimonial}) => {
         let starElements = [];
         for (let i = 0; i < 5; i++) {
             if (i < testimonial.rating) {
-                starElements.push(<span className="material-icons primaryYellow">star</span>);
+                starElements.push(<i class="bi bi-star-fill primaryYellow"></i>);
             } else {
-                starElements.push(<span className="material-symbols-outlined secondaryBlack">star</span>);
+                starElements.push(<i class="bi bi-star secondaryBlack"></i>);
             }
         }
         return starElements;
