@@ -10,7 +10,12 @@ function TitleSection() {
                     <p className="leadText secondaryWhite">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <button className="cardTitle">Reserve a Table</button>
                 </div>
-                <img src={TitleImage} alt="Waiter holding kebabs" className="titleSectionColumnTwo titlePictureWrapper"/>
+                <div className="titleSectionColumnTwo">
+                    <div className="titlePictureWrapper">
+                        <img src={TitleImage} alt="Waiter holding kebabs" className=""/>
+                    </div>
+                </div>
+                
             </div>
             
         </article>

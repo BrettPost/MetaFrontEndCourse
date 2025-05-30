@@ -14,8 +14,6 @@ p span {
 img {
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
     object-fit: cover;
 }
 
@@ -36,6 +34,13 @@ img {
     gap: 3rem;
     padding: 16px;
     margin: auto 10% auto 10%;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 3rem;
+    padding: 16px;
 }
 
 /* Header Section */
@@ -94,7 +99,11 @@ main > article {
 }
 
 .titlePictureWrapper {
-    height: 537px;
+    aspect-ratio: 9 / 16;
+    max-height: 537px;
+    border-radius: inherit;
+    overflow: hidden;
+    position: relative;
 }
 
 /* Weekly Special Section */
@@ -160,9 +169,7 @@ main > article {
 }
 
 .testimonialReviews {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 4rem;
+    margin: 4rem 10% 4rem 10%;
 }
 
 .testimonialCard {
@@ -212,18 +219,26 @@ main > article {
 }
 
 .aboutImageGallery {
+    display: grid;
+    grid-template-columns: auto;
+    column-gap: 20px;
+    gap: 10px;
     margin: 0 10% 0 10%;
 }
 
 .aboutPictureWrapperOne {
     height: 400px;
     position: relative;
+    overflow: hidden;
+    border-radius: 30px;
 }
 
 .aboutPictureWrapperTwo {
     height: 40px;
     position: relative;
     margin-left: 40px;
+    overflow: hidden;
+    border-radius: 30px;
 }
 
 /* Footer Section */

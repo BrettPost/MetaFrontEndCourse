@@ -51,7 +51,7 @@ function TestimonialSection() {
     return (
         <article className="testimonialArea">
             <h2 className="subTitle secondaryBlack testimonialTitle">What Do Our Customers Think?</h2>
-            <div className="testimonialReviews">
+            <div className="testimonial-grid testimonialReviews">
                 {testimonials.map((testimonial) => (
                     <TestimonialCard key={testimonial.id} testimonial={testimonial} />
                 ))}
