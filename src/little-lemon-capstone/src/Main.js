@@ -1,15 +1,17 @@
-import TitleAreaSection from "./TitleSection";
-import WeeklySpecials from "./WeeklySpecials";
-import TestimonialSection from "./TestimonialSection";
-import AboutSection from "./AboutSection";
+import HomePage from "./Pages/HomePage";
+import { Routes, Route } from "react-router-dom";
 
 function Main() {
     return (
         <main className="">
-            <TitleAreaSection />
-            <WeeklySpecials />
-            <TestimonialSection />
-            <AboutSection />
+            <Routes> 
+                <Route path="/" element={<HomePage />} />
+                <Route path="/About" element={<></>}></Route>
+                <Route path="/Menu" element={<></>}></Route>
+                <Route path="/Reservations" element={<></>}></Route>
+                <Route path="/Order" element={<></>}></Route>
+                <Route path="/Login" element={<></>}></Route>
+            </Routes>
         </main>
     );
 }
