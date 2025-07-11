@@ -33,7 +33,7 @@ function WeeklySpecials() {
         <article className="weeklySpecialsArea">
             <div className="grid">
                 <div className="weeklySpecialSectionColumnOne">
-                    <h2 className="secondaryBlack">This Week's Specials!</h2>
+                    <h2 className="sectionTitle">This Week's Specials!</h2>
                 </div>
                 <div className="weeklySpecialSectionColumnTwo">
                     <button className="cardTitle">Online Menu</button>

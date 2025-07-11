@@ -3,8 +3,10 @@ import Logo from './Images/Logo.svg'
 
 function Header() {
     return (
-        <header className="grid">
-            <img src={Logo} alt="Logo and title of the application." className=""/>
+        <header className="">
+            <div className="navLogoWrapper">
+                <img src={Logo} alt="Logo and title of the application."/>
+            </div>
             <Nav />
         </header>
     );

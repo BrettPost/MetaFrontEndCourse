@@ -1,10 +1,34 @@
+/* Mobile Views restrict the Viewport horizontally. Need a site wrapper inside the body element */
+:root {
+    --TitleSize: 64px;
+    --subTitleSize: 40px;
+    --subSectionTitleSize: 20px;
+    --cardTitleSize: 18px;
+    --paragraphSize: 16px;
+    --TitleFont: 'Markazi Text', serif;
+    --paragraphFont: "Karla", sans-serif;
+    --primaryGreen: #495E57;
+    --primaryYellow: #F4CE14;
+    --secondaryOrange: #EE9972;
+    --secondaryTan: #FBDABB;
+    --secondaryWhite: #EDEFEE;
+    --secondaryBlack: #333333;
+    --mainShadow: 4px 5px 6px rgba(0, 0, 0, .25);
+    --hoverShadow: 4px 5px 10px rgba(0, 0, 0, .2);
+}
+
+body > div {
+    overflow-x: hidden;
+}
+
 button {
-    background-color: #F4CE14;
-    padding: 1rem 2.5rem 1rem 2.5rem;
+    background-color: var(--primaryYellow);
+    padding: 1rem;
     border-radius: 1rem;
-    box-shadow: 4px 5px 6px #333333;
+    box-shadow: var(--mainShadow);
     margin: 1rem 1rem 1rem 0;
     white-space: nowrap;
+    min-height: 50px;
 }
 
 p span {
@@ -46,30 +70,29 @@ img {
 /* Header Section */
 
 header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20vw 0 12vw;
     height: 12vh;
     align-items: center;
-    width: 100%;
-}
-
-header > img {
-    grid-column: 3 / 5;
 }
 
 /* Nav Section */
 
 nav {
-    grid-column: 6 / 11;
+    margin-left: 5rem;
 }
 
 nav > ul {
     display: flex;
     justify-content: space-between;
+    gap: 0.7rem;
 }
 
 nav li {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin: 0 1rem 0 1rem;
 }
 
 nav a {
@@ -80,10 +103,17 @@ main > article {
     padding: 8.2% 0 10% 0;
 }
 
+.navLogoWrapper {
+    min-width: 148px;
+    border-radius: inherit;
+    overflow: hidden;
+    position: relative;
+}
+
 /* Title Section */
 
 .titleArea {
-    background-color: #495E57;
+    background-color: var(--primaryGreen);
 }
 
 .titleSectionColumnOne {
@@ -91,10 +121,14 @@ main > article {
     justify-content: center;
 }
 
+.titleSectionColumnOne > div {
+    max-width: 300px;
+}
+
 .titleSectionColumnTwo {
     grid-column: 8 / 12;
     border-radius: 1rem;
-    box-shadow: 4px 5px 6px #333333;
+    box-shadow: var(--mainShadow);
     position: absolute;
 }
 
@@ -108,7 +142,7 @@ main > article {
 
 /* Weekly Special Section */
 .weeklySpecialsArea {
-    background-color: #EDEFEE;
+    background-color: var(--secondaryWhite);
 }
 
 .weeklySpecialSectionColumnOne {
@@ -123,9 +157,9 @@ main > article {
 .weeklySpecialCard {
     height: 450px;
     width: 260px;
-    background-color: #EDEFEE;
+    background-color: var(--secondaryWhite);
     border-radius: 1rem;
-    box-shadow: 4px 5px 6px #333333;
+    box-shadow: var(--mainShadow);
     overflow: hidden;
     justify-self: center;
 }
@@ -166,6 +200,7 @@ main > article {
 
 .testimonialTitle {
     justify-self: center;
+    color: var(--secondaryBlack) !important;
 }
 
 .testimonialReviews {
@@ -175,10 +210,10 @@ main > article {
 .testimonialCard {
     border: 1px solid rgb(196, 196, 196);
     border-radius: 10px;
-    box-shadow: 4px 5px 6px #AAAAAA;
+    box-shadow: var(--hoverShadow);
     width: 180px;
     height: 180px;
-    padding: 1rem;
+    padding: 0.8rem;
 }
 
 .testimonialCard p {
@@ -192,6 +227,7 @@ main > article {
 .testimonialPictureWrapper {
     height: 30px;
     width: 30px;
+    margin-right: 0.3rem;
     border-radius: 100%;
     position: relative;
     overflow: hidden;
@@ -209,7 +245,6 @@ main > article {
 
 /* About Section */
 .aboutArea {
-    background-color: #EDEFEE;
     display: flex;
 }
 
@@ -247,7 +282,7 @@ main > article {
 /* Footer Section */
 
 footer {
-    background-color: #EDEFEE;
+    background-color: var(--secondaryWhite);
     width: 100%;
     padding: 5% 0 5% 0;
 }
@@ -286,85 +321,127 @@ footer img {
     justify-self: center;
 }
 
-/* Fonts */
+
+@media (max-width: 1200px) {
+    
+
+    
+}
+
+@media (max-width: 768px) {
+    * {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .titleSectionColumnTwo {
+        display: none;
+    }
+
+    main > article {
+        padding: 8.2% 0 10% 0;
+    }
+
+    .grid {
+        padding: 0;
+    }
+
+    /* Header Section */
+
+    /* header {
+        height: 12vh;
+        align-items: center;
+        width: 100%;
+    } */
+
+    /* Nav Section */
+
+    nav {
+        display: flex;
+    }
+
+    nav > ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav li {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav a {
+        text-decoration: none;
+    }
+
+    main > article {
+        padding: 8.2% 0 10% 0;
+    }
+
+    .navLogoWrapper {
+        grid-column: 3 / 5;
+        border-radius: inherit;
+        overflow: hidden;
+        position: relative;
+    }
+}
 
 .displayTitle {
-    font-size: 64px;
-    font-family: 'Markazi Text';
-    font-weight: bold;
+    font-size: var(--TitleSize);
+    color: var(--primaryYellow);
+    font-family: var(--TitleFont);
+    font-weight: 500;
 }
 
 .subTitle {
-    font-size: 40px;
-    font-family: 'Markazi Text';
+    font-size: var(--subTitleSize);
+    font-family: var(--TitleFont);
+    color: var(--secondaryWhite);
+}
+
+.secondarySubTitle {
+    font-size: var(--subTitleSize);
+    font-family: var(--TitleFont);
+    color: var(--secondaryOrange);
 }
 
 .leadText {
-    font-size: 18px;
-    font-family: 'Karla';
+    font-size: var(--cardTitleSize);
+    font-family: var(--paragraphFont);
+    color: var(--secondaryWhite);
     font-weight: bold;
 }
 
 .sectionTitle {
-    font-size: 20px;
-    font-family: 'Karla';
+    font-size: var(--TitleSize);
+    font-family: var(--TitleFont);
+    color: var(--secondaryBlack);
     font-weight: bolder;
 }
 
 .sectionCategories {
-    font-size: 16px;
-    font-family: 'Karla';
+    font-size: var(--paragraphText);
+    font-family: var(--paragraphFont);
     font-weight: bolder;
 }
 
 /* Should be darker than lead text class */
 .cardTitle {
-    font-size: 18px;
+    font-size: var(--cardTitleSize);
 
     font-weight: bold;
 }
 
 .paragraphText {
-    font-size: 16px;
-    font-family: 'Karla';
+    font-size: var(--paragraphSize);
+    font-family: var(--paragraphFont);
     line-height: 20px;
 }
 
 .highlightText {
-    font-size: 16px;
-    font-family: 'Karla';
-    font-weight: bold;
+    font-size: var(--paragraphSize);
+    font-family: var(--cardTitleSize);
+    color: var(--secondaryBlack);
+    font-weight: 600;
 }
-
-/* Colors */
-
-.primaryGreen {
-    color: #495E57;
-}
-
-.primaryYellow {
-    color: #F4CE14;
-}
-
-.secondaryOrange {
-    color: #EE9972;
-}
-
-.secondaryTan {
-    color: #FBDABB;
-}
-
-.secondaryWhite {
-    color: #EDEFEE;
-}
-
-.secondaryBlack {
-    color: #333333;
-}
-
-/* Make responsive */
-@media (max-width: 768px) {
-    .col-6, .col-4, .col-3 { width: 100%; } /* Stack on smaller screens */
-}
-
-

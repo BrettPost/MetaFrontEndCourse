@@ -8,7 +8,7 @@ function Footer() {
                     <img src={FooterLogo} alt="Logo and title of the application." className="col-4"/>
                 </div>
                 <div className="footerColumnTwo">
-                    <label className="sectionTitle">DOORMAT NAVIGATION</label>
+                    <label className="highlightText">DOORMAT NAVIGATION</label>
                     <ul className="paragraphText">
                         <li><a href="/#">Home</a></li>
                         <li><a href="/#">About</a></li>
@@ -19,7 +19,7 @@ function Footer() {
                     </ul>
                 </div>
                 <div className="footerColumnThree">
-                    <label className="sectionTitle">CONTACT</label>
+                    <label className="highlightText">CONTACT</label>
                     <ul className="paragraphText">
                         <li><a href="/#">Address</a></li>
                         <li><a href="/#">Phone Number</a></li>
@@ -28,7 +28,7 @@ function Footer() {
                 </div>
                 
                 <div className="footerColumnFour">
-                    <label className="sectionTitle">SOCIAL MEDIA LINKS</label>
+                    <label className="highlightText">SOCIAL MEDIA LINKS</label>
                     <ul className="paragraphText">
                         <li><a href="/#">Instagram</a></li>
                         <li><a href="/#">Facebook</a></li>
