@@ -6,9 +6,9 @@ function TitleSection() {
             <div className="grid">
                 <div className="titleSectionColumnOne">
                     <div>
-                        <h1 className="displayTitle primaryYellow">Little Lemon</h1>
-                        <h2 className="subTitle secondaryWhite">Berkeley</h2>
-                        <p className="leadText secondaryWhite">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <h1 className="displayTitle">Little Lemon</h1>
+                        <h2 className="subTitle">Berkeley</h2>
+                        <p className="leadText">We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
                         <button className="cardTitle">Reserve a Table</button>
                     </div>
                 </div>
