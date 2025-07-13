@@ -6,14 +6,14 @@ function TitleSection() {
             <div className="grid">
                 <div className="titleSectionColumnOne">
                     <div>
-                        <h1 className="displayTitle">Little Lemon</h1>
+                        <h1 className="displayTitle wrapTitle">Little Lemon</h1>
                         <h2 className="subTitle">Berkeley</h2>
                         <p className="leadText">We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
                         <button className="cardTitle">Reserve a Table</button>
                     </div>
                 </div>
                 <div className="titleSectionColumnTwo">
-                    <div className="titlePictureWrapper">
+                    <div className="titlePictureWrapper tabletHide">
                         <img src={TitleImage} alt="Waiter holding kebabs" className=""/>
                     </div>
                 </div>

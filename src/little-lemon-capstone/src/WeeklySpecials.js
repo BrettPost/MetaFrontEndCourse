@@ -31,11 +31,11 @@ function WeeklySpecials() {
 
     return (
         <article className="weeklySpecialsArea">
-            <div className="grid">
-                <div className="weeklySpecialSectionColumnOne">
+            <div className="weeklySpecialsHeading">
+                <div className="">
                     <h2 className="sectionTitle">This Week's Specials!</h2>
                 </div>
-                <div className="weeklySpecialSectionColumnTwo">
+                <div className="">
                     <button className="cardTitle">Online Menu</button>
                 </div>
             </div>

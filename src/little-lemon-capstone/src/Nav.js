@@ -3,7 +3,7 @@
 function Nav() {
     return (
         <nav className="">
-            <ul className="">
+            <ul className="mobileHide">
                 <li className=""><a href="/#" className="highlightText">Home</a></li>
                 <li className=""><a href="/About" className="highlightText ">About</a></li>
                 <li className=""><a href="/Menu" className="highlightText">Menu</a></li>
