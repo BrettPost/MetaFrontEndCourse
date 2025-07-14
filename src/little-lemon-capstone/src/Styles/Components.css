@@ -310,6 +310,11 @@ footer img {
     width: 132px;
 }
 
+.footerContent {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .footerColumnOne {
     grid-column: 2 / 4;
     justify-self: center;
@@ -494,8 +499,19 @@ footer img {
         justify-content: left;
     }
 
+    /* Footer Section */
+
     footer {
         padding: 0 5vw 0 5vw;
+    }
+
+    .footerContent {
+        flex-direction: column-reverse;
+    }
+
+    .footerContent > div {
+        margin: 1rem 0 1rem 0;
+        text-align: center;
     }
 
     .wrapTitle {

@@ -3,11 +3,11 @@ import FooterLogo from './Images/FooterPhoto.png';
 function Footer() {
     return (
         <footer>
-            <div className="grid">
-                <div className="footerColumnOne">
+            <div className="footerContent">
+                <div className="">
                     <img src={FooterLogo} alt="Logo and title of the application." className="col-4"/>
                 </div>
-                <div className="footerColumnTwo">
+                <div className="">
                     <label className="highlightText">DOORMAT NAVIGATION</label>
                     <ul className="paragraphText">
                         <li><a href="/#">Home</a></li>
@@ -18,7 +18,7 @@ function Footer() {
                         <li><a href="/#">Login</a></li>
                     </ul>
                 </div>
-                <div className="footerColumnThree">
+                <div className="">
                     <label className="highlightText">CONTACT</label>
                     <ul className="paragraphText">
                         <li><a href="/#">Address</a></li>
@@ -27,7 +27,7 @@ function Footer() {
                     </ul>
                 </div>
                 
-                <div className="footerColumnFour">
+                <div className="">
                     <label className="highlightText">SOCIAL MEDIA LINKS</label>
                     <ul className="paragraphText">
                         <li><a href="/#">Instagram</a></li>
