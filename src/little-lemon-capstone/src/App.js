@@ -1,5 +1,6 @@
 import './App.css';
 import './Styles/Components.css'
+import './Styles/Form.css'
 import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js';

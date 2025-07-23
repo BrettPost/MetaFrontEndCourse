@@ -1,0 +1,26 @@
+form {
+    padding: 3rem 1rem 1rem;
+    margin-left: 10%;
+}
+
+h1 {
+    font-size: var(--TitleSize);
+    font-family: var(--TitleFont);
+}
+
+form > div {
+    margin: 2rem 2rem 2rem 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.7rem;
+}
+
+input {
+    border: solid 2px var(--secondaryBlack);
+    border-radius: 0.5rem;
+    height: 3rem;
+    width: 33%;
+    padding: 0.3rem;
+}

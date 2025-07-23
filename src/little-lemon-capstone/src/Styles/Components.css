@@ -314,7 +314,7 @@ main > article {
 }
 
 .aboutPictureWrapperTwo:hover {
-    transform: rotate(10deg);
+    transform: rotate(-10deg);
     cursor: pointer;
     z-index: 0;
 }
