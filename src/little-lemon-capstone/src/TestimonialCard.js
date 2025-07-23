@@ -14,7 +14,7 @@ const TestimonialCard = ({testimonial}) => {
     }
 
     return (
-        <div key={testimonial.id} className="testimonialRowTwo testimonialCard">
+        <div key={testimonial.id} className="testimonialRowTwo testimonialCard bounce-hover">
             <div className="testimonialCardHeader">
                 <div className='testimonialPictureWrapper'>
                     <img src={testimonial.profileImage} alt={testimonial.fullName} />
