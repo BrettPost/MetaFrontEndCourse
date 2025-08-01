@@ -24,3 +24,8 @@ input {
     width: 33%;
     padding: 0.3rem;
 }
+
+.reservation {
+    border: solid 2px var(--secondaryBlack);
+    border-radius: 0.5rem;
+}
