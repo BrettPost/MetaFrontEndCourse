@@ -1,9 +1,11 @@
-import React from 'react';
+import {useState, useEffect} from 'react';
+import {fetchAPI, submitAPI} from './jsonFunctions/api.js'
 
 function ReserveForm() {
 
-    const [reservation, setReservations] = React.useState([]);
-    const [formData, setFormData] = React.useState({
+    const [scheduleTimes, setScheduleTimes] = useState(["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]);
+    const [reservation, setReservations] = useState([]);
+    const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
         scheduleDate: '',
@@ -20,20 +22,34 @@ function ReserveForm() {
         }));
       };
 
-    var scheduleTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        setReservations((prevReservations) => [...prevReservations, formData]);
-        setFormData({
-            firstName: '',
-            lastName: '',
-            scheduleDate: '',
-            scheduleTime: '',
-            numOfGuests: '',
-            occasion: ''
-        }); // Reset form
+        if (submitAPI()) {
+            setReservations((prevReservations) => [...prevReservations, formData]);
+
+            setFormData({
+                firstName: '',
+                lastName: '',
+                scheduleDate: '',
+                scheduleTime: '',
+                numOfGuests: '',
+                occasion: ''
+            }); // Reset form
+        } else {
+            console.log("Error on submission.")
+        }
+        
+        
       };
+
+    useEffect(() => {
+        try {
+            var times = fetchAPI(formData.scheduleDate);
+            setScheduleTimes(times);
+        } catch (error) {
+            console.log(error);
+        }
+    }, [formData.scheduleDate]);
 
     return (
         <>
@@ -67,11 +83,11 @@ function ReserveForm() {
                         <label htmlFor="occasion" className="sectionCategories">Occasion</label>
                         <input type="text" id="occasion" name="occasion" placeholder="Birthday..." onChange={handleChange} value={formData.occasion} />
                     </div>
-                    <button type="submit" className="cardTitle">Reserve</button>
+                    <button type="submit" data-testid="reserveTable" className="cardTitle">Reserve</button>
                 </form>
                 <div className='testimonial-grid'>
                     {reservation.map((r, index) => (
-                        <article className='reservation' key={index}>
+                        <article className='reservation' key={index} data-testid="reservation">
                             <h4 className='sectionCategories'>Reservation {index + 1}</h4>
                             <div>
                                 <p className='paragraphText'><b>Name:</b> {r.firstName} {r.lastName}</p>
