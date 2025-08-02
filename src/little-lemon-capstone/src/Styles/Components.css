@@ -437,6 +437,16 @@ footer img {
     white-space: nowrap;
 }
 
+.alertMessage {
+    position: fixed;
+    bottom: 1rem;
+    left: 2rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    background-color: var(--primaryGreen);
+    color: var(--secondaryWhite);
+}
+
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }

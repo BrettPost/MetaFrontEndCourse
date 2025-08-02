@@ -1,8 +1,10 @@
 import {useState, useEffect} from 'react';
-import {fetchAPI, submitAPI} from './jsonFunctions/api.js'
+import {fetchAPI, submitAPI} from './jsonFunctions/api.js';
+import ReservationConfirmation from './Components/ReservationConfirmation.js';
 
 function ReserveForm() {
 
+    const [isConfirmed, setIsConfirmed] = useState(false);
     const [scheduleTimes, setScheduleTimes] = useState(["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]);
     const [reservation, setReservations] = useState([]);
     const [formData, setFormData] = useState({
@@ -25,6 +27,7 @@ function ReserveForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (submitAPI()) {
+            confirmationMessage();
             setReservations((prevReservations) => [...prevReservations, formData]);
 
             setFormData({
@@ -38,9 +41,17 @@ function ReserveForm() {
         } else {
             console.log("Error on submission.")
         }
-        
-        
       };
+      
+    async function confirmationMessage() {
+        setIsConfirmed(true);
+        await sleep(10000);
+        setIsConfirmed(false);
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
     useEffect(() => {
         try {
@@ -100,7 +111,7 @@ function ReserveForm() {
                     ))}  
                 </div>
             </div>
-                   
+            {isConfirmed && <ReservationConfirmation />}
         </>
     );
 }
