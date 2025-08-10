@@ -1,48 +1,76 @@
 import {useState, useEffect} from 'react';
 import {fetchAPI, submitAPI} from './jsonFunctions/api.js';
 import ReservationConfirmation from './Components/ReservationConfirmation.js';
+import {useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+
+const reservationSchema = Yup.object({
+    firstName: Yup.string().required("Required"),
+    lastName: Yup.string().required("Required"),
+    scheduleDate: Yup.date().typeError("Must be a valid date").required("Required"),
+    scheduleTime: Yup.string().required("Required"),
+    numOfGuests: Yup.number().typeError("Must be a number").min(1, "Must be at least 1 guest.").required("Required"),
+    occasion: Yup.string().notRequired(),
+})
 
 function ReserveForm() {
 
     const [isConfirmed, setIsConfirmed] = useState(false);
     const [scheduleTimes, setScheduleTimes] = useState(["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]);
     const [reservation, setReservations] = useState([]);
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        scheduleDate: '',
-        scheduleTime: '',
-        numOfGuests: '',
-        occasion: ''
+    // const [formData, setFormData] = useState({
+    //     firstName: '',
+    //     lastName: '',
+    //     scheduleDate: '',
+    //     scheduleTime: '',
+    //     numOfGuests: '',
+    //     occasion: ''
+    // });
+
+    const { register, watch, handleSubmit, formState: { errors }, reset } = useForm({
+        resolver: yupResolver(reservationSchema),
+        mode: "onBlur",
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            scheduleDate: "",
+            scheduleTime: "",
+            numOfGuests: "",
+            occasion: "",
+        },
     });
 
-    const handleChange = (e) => {
-        const { id, value } = e.target;
-        setFormData((prev) => ({
-          ...prev,
-          [id]: value,
-        }));
-      };
+    const watchScheduleDate = watch("scheduleDate");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    // const handleChange = (e) => {
+    //     const { id, value } = e.target;
+    //     setFormData((prev) => ({
+    //         ...prev,
+    //         [id]: value,
+    //     }));
+    // };
+
+    const onSubmit = async (data) => {
+        //e.preventDefault();
         if (submitAPI()) {
             confirmationMessage();
-            setReservations((prevReservations) => [...prevReservations, formData]);
+            setReservations((prevReservations) => [...prevReservations, data]);
 
-            setFormData({
-                firstName: '',
-                lastName: '',
-                scheduleDate: '',
-                scheduleTime: '',
-                numOfGuests: '',
-                occasion: ''
-            }); // Reset form
+            // setFormData({
+            //     firstName: '',
+            //     lastName: '',
+            //     scheduleDate: '',
+            //     scheduleTime: '',
+            //     numOfGuests: '',
+            //     occasion: ''
+            // }); // Reset form
+            reset();
         } else {
             console.log("Error on submission.")
         }
       };
-      
+
     async function confirmationMessage() {
         setIsConfirmed(true);
         await sleep(10000);
@@ -55,44 +83,50 @@ function ReserveForm() {
 
     useEffect(() => {
         try {
-            var times = fetchAPI(formData.scheduleDate);
+            var times = fetchAPI(watchScheduleDate);
             setScheduleTimes(times);
         } catch (error) {
             console.log(error);
         }
-    }, [formData.scheduleDate]);
+    }, [watchScheduleDate]); //HERE
 
     return (
         <>
             <div className='pageLayout'>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit(onSubmit)} noValidate>
                     <h1>Reserve a Table</h1>
                     <div>
                         <label htmlFor="firstName" className="sectionCategories">First Name</label>
-                        <input type="text" id="firstName"  placeholder="First Name" onChange={handleChange} value={formData.firstName} />
+                        <input type="text" id="firstName" placeholder="First Name"  {...register("firstName")} aria-invalid={!!errors.firstName}/>
+                        {errors.firstName && <small style={{ color: "crimson" }}>{errors.firstName.message}</small>}
                     </div>
                     <div>
                         <label htmlFor="lastName" className="sectionCategories">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" onChange={handleChange} value={formData.lastName} />
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name"  {...register("lastName")}/>
+                        {errors.lastName && <small style={{ color: "crimson" }}>{errors.lastName.message}</small>}
                     </div>
                     <div>
                         <label htmlFor="scheduleDate" className="sectionCategories">Choose Date</label>
-                        <input id="scheduleDate" name="scheduleDate" type="date" onChange={handleChange} value={formData.scheduleDate}/>
+                        <input id="scheduleDate" name="scheduleDate" type="date"  {...register("scheduleDate")}/>
+                        {errors.scheduleDate && <small style={{ color: "crimson" }}>{errors.scheduleDate.message}</small>}
                     </div>
                     <div>
                         <label htmlFor="scheduleTime" className="sectionCategories">Choose Time</label>
-                        <select id="scheduleTime" name="scheduleTime" onChange={handleChange} value={formData.scheduleTime}>
-                            <option name={formData.scheduleTime} value={formData.scheduleDate}>Select a Time</option>
+                        <select id="scheduleTime" name="scheduleTime"  {...register("scheduleTime")}>
+                            <option >Select a Time</option>
                             {scheduleTimes.map((x, id) => <option key={id}>{x}</option>)}
                         </select>
+                        {errors.scheduleTime && <small style={{ color: "crimson" }}>{errors.scheduleTime.message}</small>}
                     </div>
                     <div>
                         <label htmlFor="numOfGuests" className="sectionCategories">Amount of Guests</label>
-                        <input type="text" id="numOfGuests" name="numOfGuests" placeholder="1, 2, 3..." onChange={handleChange} value={formData.numOfGuests} />
+                        <input type="number" id="numOfGuests" name="numOfGuests" placeholder="1, 2, 3..."  {...register("numOfGuests")}/>
+                        {errors.numOfGuests && <small style={{ color: "crimson" }}>{errors.numOfGuests.message}</small>}
                     </div>
                     <div>
                         <label htmlFor="occasion" className="sectionCategories">Occasion</label>
-                        <input type="text" id="occasion" name="occasion" placeholder="Birthday..." onChange={handleChange} value={formData.occasion} />
+                        <input type="text" id="occasion" name="occasion" placeholder="Birthday..."  {...register("occasion")}/>
+                        {errors.occasion && <small style={{ color: "crimson" }}>{errors.occasion.message}</small>}
                     </div>
                     <button type="submit" data-testid="reserveTable" className="cardTitle">Reserve</button>
                 </form>
@@ -102,13 +136,13 @@ function ReserveForm() {
                             <h4 className='sectionCategories'>Reservation {index + 1}</h4>
                             <div>
                                 <p className='paragraphText'><b>Name:</b> {r.firstName} {r.lastName}</p>
-                                <p className='paragraphText'><b>Date:</b> {r.scheduleDate}</p>
+                                <p className='paragraphText'><b>Date:</b> {new Date(r.scheduleDate).toLocaleDateString()}</p>
                                 <p className='paragraphText'><b>Time:</b> {r.scheduleTime}</p>
                                 <p className='paragraphText'><b>Guests:</b> {r.numOfGuests}</p>
                                 <p className='paragraphText'><b>Occasion:</b> {r.occasion}</p>
                             </div>
                         </article>
-                    ))}  
+                    ))}
                 </div>
             </div>
             {isConfirmed && <ReservationConfirmation />}
