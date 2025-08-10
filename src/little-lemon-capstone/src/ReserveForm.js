@@ -81,17 +81,17 @@ function ReserveForm() {
                     </div>
                     <div>
                         <label htmlFor="lastName" className="sectionCategories">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" placeholder="Last Name"  {...register("lastName")}/>
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name"  {...register("lastName")} aria-invalid={!!errors.lastName}/>
                         {errors.lastName && <small style={{ color: "crimson" }}>{errors.lastName.message}</small>}
                     </div>
                     <div>
                         <label htmlFor="scheduleDate" className="sectionCategories">Choose Date</label>
-                        <input id="scheduleDate" name="scheduleDate" type="date"  {...register("scheduleDate")}/>
+                        <input id="scheduleDate" name="scheduleDate" type="date"  {...register("scheduleDate")} aria-invalid={!!errors.scheduleDate}/>
                         {errors.scheduleDate && <small style={{ color: "crimson" }}>{errors.scheduleDate.message}</small>}
                     </div>
                     <div>
                         <label htmlFor="scheduleTime" className="sectionCategories">Choose Time</label>
-                        <select id="scheduleTime" name="scheduleTime"  {...register("scheduleTime")}>
+                        <select id="scheduleTime" name="scheduleTime" {...register("scheduleTime")} aria-invalid={!!errors.scheduleTime}>
                             <option >Select a Time</option>
                             {scheduleTimes.map((x, id) => <option key={id}>{x}</option>)}
                         </select>
@@ -99,15 +99,15 @@ function ReserveForm() {
                     </div>
                     <div>
                         <label htmlFor="numOfGuests" className="sectionCategories">Amount of Guests</label>
-                        <input type="number" id="numOfGuests" name="numOfGuests" placeholder="1, 2, 3..."  {...register("numOfGuests")}/>
+                        <input type="number" id="numOfGuests" name="numOfGuests" placeholder="1, 2, 3..."  {...register("numOfGuests")} aria-invalid={!!errors.numOfGuests}/>
                         {errors.numOfGuests && <small style={{ color: "crimson" }}>{errors.numOfGuests.message}</small>}
                     </div>
                     <div>
                         <label htmlFor="occasion" className="sectionCategories">Occasion</label>
-                        <input type="text" id="occasion" name="occasion" placeholder="Birthday..."  {...register("occasion")}/>
+                        <input type="text" id="occasion" name="occasion" placeholder="Birthday..."  {...register("occasion")} aria-invalid={!!errors.occasion}/>
                         {errors.occasion && <small style={{ color: "crimson" }}>{errors.occasion.message}</small>}
                     </div>
-                    <button type="submit" data-testid="reserveTable" className="cardTitle">Reserve</button>
+                    <button type="submit" data-testid="reserveTable" className="cardTitle" aria-label="Confirm Reservation">Reserve</button>
                 </form>
                 <div className='testimonial-grid'>
                     {reservation.map((r, index) => (

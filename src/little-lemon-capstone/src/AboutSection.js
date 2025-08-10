@@ -2,7 +2,7 @@ import TitleImage from "./Images/TitleSectionFood.jpg";
 
 function AboutSection() {
     return (
-        <article className="">
+        <article id="about" className="">
             <div className="aboutArea">
                 <div className="aboutContent">
                     <h3 className="secondaryDisplayTitle wrapTitle">Little Lemon</h3>

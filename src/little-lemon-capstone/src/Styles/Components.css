@@ -440,7 +440,7 @@ footer img {
 .alertMessage {
     position: fixed;
     bottom: 1rem;
-    left: 2rem;
+    right: 2rem;
     padding: 1rem;
     border-radius: 2rem;
     background-color: var(--primaryGreen);

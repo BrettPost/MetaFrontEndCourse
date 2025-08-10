@@ -1,4 +1,3 @@
-import TitleImage from "./Images/TitleSectionFood.jpg";
 import WeeklySpecialCard from "./WeeklySpecialCard";
 import GreekSalad from "./Images/greekSalad.jpg";
 import Bruschetta from "./Images/bruschetta.svg";
@@ -30,7 +29,7 @@ function WeeklySpecials() {
     ];
 
     return (
-        <article className="weeklySpecialsArea">
+        <article id="menu" className="weeklySpecialsArea">
             <div className="weeklySpecialsHeading">
                 <div className="">
                     <h2 className="sectionTitle">This Week's Specials!</h2>
