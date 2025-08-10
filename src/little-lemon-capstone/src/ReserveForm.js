@@ -5,11 +5,16 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
+const validDate = () => {
+    let date = new Date();
+    date.setDate(date.getDate() - 1);
+    return date;
+}
 const reservationSchema = Yup.object({
     firstName: Yup.string().required("Required"),
     lastName: Yup.string().required("Required"),
-    scheduleDate: Yup.date().typeError("Must be a valid date").required("Required"),
-    scheduleTime: Yup.string().required("Required"),
+    scheduleDate: Yup.date().typeError("Must be a valid date").min(validDate(), 'Please choose today\'s date or a future date.').required("Required"),
+    scheduleTime: Yup.string().matches(/^([01]\d|2[0-3]):([0-5]\d)$/, "Must be a valid time. Make sure date field is selected first.").required("Required"),
     numOfGuests: Yup.number().typeError("Must be a number").min(1, "Must be at least 1 guest.").required("Required"),
     occasion: Yup.string().notRequired(),
 })
@@ -19,15 +24,6 @@ function ReserveForm() {
     const [isConfirmed, setIsConfirmed] = useState(false);
     const [scheduleTimes, setScheduleTimes] = useState(["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]);
     const [reservation, setReservations] = useState([]);
-    // const [formData, setFormData] = useState({
-    //     firstName: '',
-    //     lastName: '',
-    //     scheduleDate: '',
-    //     scheduleTime: '',
-    //     numOfGuests: '',
-    //     occasion: ''
-    // });
-
     const { register, watch, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(reservationSchema),
         mode: "onBlur",
@@ -43,28 +39,11 @@ function ReserveForm() {
 
     const watchScheduleDate = watch("scheduleDate");
 
-    // const handleChange = (e) => {
-    //     const { id, value } = e.target;
-    //     setFormData((prev) => ({
-    //         ...prev,
-    //         [id]: value,
-    //     }));
-    // };
-
     const onSubmit = async (data) => {
         //e.preventDefault();
         if (submitAPI()) {
             confirmationMessage();
             setReservations((prevReservations) => [...prevReservations, data]);
-
-            // setFormData({
-            //     firstName: '',
-            //     lastName: '',
-            //     scheduleDate: '',
-            //     scheduleTime: '',
-            //     numOfGuests: '',
-            //     occasion: ''
-            // }); // Reset form
             reset();
         } else {
             console.log("Error on submission.")
@@ -88,7 +67,7 @@ function ReserveForm() {
         } catch (error) {
             console.log(error);
         }
-    }, [watchScheduleDate]); //HERE
+    }, [watchScheduleDate]);
 
     return (
         <>
