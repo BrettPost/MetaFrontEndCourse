@@ -1,0 +1,71 @@
+form {
+    padding: 3rem 1rem 1rem;
+    justify-items: start;
+    margin-right: 5rem;
+    width: 100%;
+}
+
+h1 {
+    font-size: var(--TitleSize);
+    font-family: var(--TitleFont);
+}
+
+form > div {
+    margin: 2rem 2rem 2rem 0;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.7rem;
+}
+
+input {
+    border: solid 2px var(--secondaryBlack);
+    border-radius: 0.5rem;
+    height: 3rem;
+    width: 100%;
+    padding: 0.3rem;
+}
+
+select {
+    border: solid 2px var(--secondaryBlack);
+    border-radius: 0.5rem;
+    height: 3rem;
+    width: 100%;
+    padding: 0.3rem;
+}
+
+input:focus:invalid {
+    border: 2px solid red;
+}
+
+.pageLayout {
+    display: flex;
+    align-items: center;
+    margin: 0 10% 0 10%;
+}
+
+.pageLayout > div {
+    width: 100%;
+}
+
+.reservation {
+    border: solid 2px var(--secondaryBlack);
+    border-radius: 0.5rem;
+    box-shadow: var(--hoverShadow);
+    width: 180px;
+    height: 180px;
+    padding: 0.8rem;
+    background-color: var(--secondaryWhite);
+}
+
+.reservation h4 {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .pageLayout {
+        flex-direction: column;
+    }
+}
